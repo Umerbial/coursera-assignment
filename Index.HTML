@@ -1,12 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sections</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em; /* 75% larger than normal text */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #p {
+            background-color: darkkhaki;
+            border: 1px solid black;
+            font-family: fantasy;
+            text-align: justify;
+            padding: 10px;
+            letter-spacing: 1px;
+            word-spacing: 5px;
+            text-indent: 30px;
+            
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section {
+            border: 1px solid black;
+            padding: 20px;
+            position: relative;
+            background-color: #f5f5f5;
+        }
+
+        .section p {
+            margin-top: 50px; /* To avoid overlap with the section title */
+        }
+
+        .section-title {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border: 1px solid black;
+            font-size: 1.25em; /* 25% larger than normal text */
+        }
+
+        /* Desktop view (992px and above) */
+        @media (min-width: 992px) {
+            .section {
+                flex: 1;
+                min-width: 0; /* Allows flexible width */
+            }
+        }
+
+        /* Tablet view (between 768px and 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .section {
+                flex: 1 1 48%; /* Two sections per row */
+            }
+            .section:nth-child(3) {
+                flex: 1 1 100%; /* Full width for the third section */
+            }
+        }
+
+        /* Mobile view (767px and below) */
+        @media (max-width: 767px) {
+            .section {
+                flex: 1 1 100%; /* Each section takes up full width */
+            }
+        }
+    </style>
 </head>
 <body>
-
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
-
+    <div class="container">
+        <h1>Responsive Layout</h1>
+        <div class="section" id="chicken">
+            <div class="section-title">Chicken</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+        </div>
+        <div class="section" id="beef">
+            <div class="section-title">Beef</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+        </div>
+        <div class="section" id="sushi">
+            <div class="section-title">Sushi</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+        </div>
+    </div>
 </body>
 </html>
